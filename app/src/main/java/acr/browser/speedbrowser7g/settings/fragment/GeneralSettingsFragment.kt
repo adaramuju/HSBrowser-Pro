@@ -82,7 +82,7 @@ class GeneralSettingsFragment : AbstractSettingsFragment() {
         )
 
         checkBoxPreference(
-                /*
+            /*
             preference = SETTINGS_ADS,
             isEnabled = BuildConfig.FULL_VERSION,
             summary = if (BuildConfig.FULL_VERSION) {
@@ -96,7 +96,11 @@ class GeneralSettingsFragment : AbstractSettingsFragment() {
             preference = SETTINGS_ADS,
             isEnabled = true,
             summary = null,
-            isChecked = userPreferences.adBlockEnabled,
+            isChecked = if (BuildConfig.FULL_VERSION) {
+                true
+            } else {
+                userPreferences.adBlockEnabled
+            },
             onCheckChange = { userPreferences.adBlockEnabled = it }
         )
 

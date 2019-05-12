@@ -16,7 +16,7 @@
 
 <resources>
 
-    <string name="app_name">7G Browser</string>
+    <string name="app_name">HS Browser+</string>
     <string name="action_new_tab">Nova aba</string>
     <string name="action_share">Compartilhar</string>
     <string name="action_history">Histórico</string>

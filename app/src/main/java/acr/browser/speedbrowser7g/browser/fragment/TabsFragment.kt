@@ -40,8 +40,6 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.tab_drawer.*
 import java.util.*
 import javax.inject.Inject
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 
 /**
  * A fragment that holds and manages the tabs and interaction with the tabs. It is reliant on the
@@ -60,7 +58,6 @@ class TabsFragment : Fragment(), View.OnClickListener, View.OnLongClickListener,
     private var tabsAdapter: LightningViewAdapter? = null
     private lateinit var uiController: UIController
 
-    lateinit var mAdView : AdView
     @Inject internal lateinit var userPreferences: UserPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,15 +93,6 @@ class TabsFragment : Fragment(), View.OnClickListener, View.OnLongClickListener,
                 setOnLongClickListener(this@TabsFragment)
             }
         }
-
-        mAdView = view.findViewById(R.id.adView)
-        if (!BuildConfig.FULL_VERSION) {
-            val adRequest = AdRequest.Builder().build()
-            mAdView.loadAd(adRequest)
-        } else {
-            mAdView.visibility = View.GONE
-        }
-
         return view
     }
 
